@@ -1,8 +1,8 @@
 package esquery
 
 import (
-	"github.com/elastic/go-elasticsearch/v7"
-	"github.com/elastic/go-elasticsearch/v7/esapi"
+	"github.com/elastic/go-elasticsearch/v8"
+	"github.com/elastic/go-elasticsearch/v8/esapi"
 )
 
 // CustomQueryMap represents an arbitrary query map for custom queries.

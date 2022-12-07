@@ -3,9 +3,9 @@ package esquery
 import (
 	"bytes"
 	"encoding/json"
+	"github.com/elastic/go-elasticsearch/v8"
 
-	"github.com/elastic/go-elasticsearch/v7"
-	"github.com/elastic/go-elasticsearch/v7/esapi"
+	"github.com/elastic/go-elasticsearch/v8/esapi"
 )
 
 // CountRequest represents a request to get the number of matches for a search

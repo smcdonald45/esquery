@@ -4,10 +4,10 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/elastic/go-elasticsearch/v8"
 	"time"
 
-	"github.com/elastic/go-elasticsearch/v7"
-	"github.com/elastic/go-elasticsearch/v7/esapi"
+	"github.com/elastic/go-elasticsearch/v8/esapi"
 )
 
 // SearchRequest represents a request to ElasticSearch's Search API, described
@@ -26,7 +26,6 @@ type SearchRequest struct {
 	sort        Sort
 	source      Source
 	timeout     *time.Duration
-
 }
 
 // Search creates a new SearchRequest object, to be filled via method chaining.
@@ -113,8 +112,6 @@ func (req *SearchRequest) Highlight(highlight Mappable) *SearchRequest {
 	return req
 }
 
-
-
 // Map implements the Mappable interface. It converts the request to into a
 // nested map[string]interface{}, as expected by the go-elasticsearch library.
 func (req *SearchRequest) Map() map[string]interface{} {
@@ -154,7 +151,6 @@ func (req *SearchRequest) Map() map[string]interface{} {
 	if req.searchAfter != nil {
 		m["search_after"] = req.searchAfter
 	}
-
 
 	source := req.source.Map()
 	if len(source) > 0 {
