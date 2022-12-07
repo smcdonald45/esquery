@@ -26,6 +26,7 @@ type SearchRequest struct {
 	sort        Sort
 	source      Source
 	timeout     *time.Duration
+	pit         *string
 }
 
 // Search creates a new SearchRequest object, to be filled via method chaining.
@@ -91,6 +92,11 @@ func (req *SearchRequest) Explain(b bool) *SearchRequest {
 // Timeout sets a timeout for the request.
 func (req *SearchRequest) Timeout(dur time.Duration) *SearchRequest {
 	req.timeout = &dur
+	return req
+}
+
+func (req *SearchRequest) Pit(pit string) *SearchRequest {
+	req.pit = &pit
 	return req
 }
 
